@@ -11,6 +11,11 @@ Class {
 }
 
 { #category : 'accessing' }
+MGCard >> flip [
+	flipped := flipped not
+]
+
+{ #category : 'accessing' }
 MGCard >> initialize [
 	super initialize.
 	flipped := false.

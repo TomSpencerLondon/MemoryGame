@@ -18,3 +18,14 @@ MGCardTest >> testCardIsNotFlippedInitially [
 	card := MGCard new.
 	self deny: card isFlipped
 ]
+
+{ #category : 'tests' }
+MGCardTest >> testFlipTogglesState [
+	| card |
+	card := MGCard new.
+	self deny: card isFlipped.
+	card flip.
+	self assert: card isFlipped.
+	card flip.
+	self deny: card isFlipped
+]
