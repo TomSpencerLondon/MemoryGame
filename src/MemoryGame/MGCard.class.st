@@ -1,9 +1,12 @@
 Class {
 	#name : 'MGCard',
-	#superclass : 'Object',
+	#superclass : 'Announcement',
 	#instVars : [
 		'symbol',
 		'flipped',
+		'announcer'
+	],
+	#classInstVars : [
 		'announcer'
 	],
 	#category : 'MemoryGame',
@@ -11,8 +14,14 @@ Class {
 }
 
 { #category : 'accessing' }
+MGCard >> announcer [
+	^ announcer
+]
+
+{ #category : 'accessing' }
 MGCard >> flip [
-	flipped := flipped not
+	flipped := flipped not.
+	self notifyFlipped
 ]
 
 { #category : 'accessing' }

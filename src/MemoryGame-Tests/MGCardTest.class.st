@@ -20,6 +20,19 @@ MGCardTest >> testCardIsNotFlippedInitially [
 ]
 
 { #category : 'tests' }
+MGCardTest >> testFlipAnnouncesFlipped [
+	| card announced |
+	card := MGCard new.
+	announced := false.
+	card announcer
+		when: MGCardFlippedAnnouncement
+		do: [  announced := true ]
+		for: self.
+	card flip.
+	self assert: announced 
+]
+
+{ #category : 'tests' }
 MGCardTest >> testFlipTogglesState [
 	| card |
 	card := MGCard new.
