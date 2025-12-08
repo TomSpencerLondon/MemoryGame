@@ -1,6 +1,6 @@
 Class {
 	#name : 'MGCard',
-	#superclass : 'Announcement',
+	#superclass : 'Object',
 	#instVars : [
 		'symbol',
 		'flipped',
