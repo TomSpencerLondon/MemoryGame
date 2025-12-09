@@ -13,6 +13,15 @@ MGGameTest >> testCardsCount [
 ]
 
 { #category : 'tests' }
+MGGameTest >> testChooseCardAddsToChosen [
+	| game card |
+	game := MGGame new initializeForSymbols: #($A $B).
+	card := game availableCards first.
+	game chooseCard: card.
+	self assert: (game chosenCards includes: card)
+]
+
+{ #category : 'tests' }
 MGGameTest >> testGameHasAvailableCards [
 	| game |
 	game := MGGame new.
