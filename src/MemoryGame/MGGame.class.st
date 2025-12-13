@@ -20,6 +20,13 @@ MGGame >> cardsCount [
 ]
 
 { #category : 'initialization' }
+MGGame >> chooseCard: aCard [ 
+	(chosenCards includes: aCard) ifTrue: [  ^ self  ].
+	chosenCards add: aCard.
+	aCard flip
+]
+
+{ #category : 'initialization' }
 MGGame >> chosenCards [
 	^ chosenCards
 ]

@@ -19,6 +19,11 @@ MGCard >> announcer [
 ]
 
 { #category : 'accessing' }
+MGCard >> disappear [
+	self announcer announce: MGCardDisappearAnnouncement new
+]
+
+{ #category : 'accessing' }
 MGCard >> flip [
 	flipped := flipped not.
 	self notifyFlipped
@@ -35,6 +40,11 @@ MGCard >> initialize [
 { #category : 'accessing' }
 MGCard >> isFlipped [
 	^ flipped
+]
+
+{ #category : 'notifying' }
+MGCard >> notifyFlipped [
+	self announcer announce: MGCardFlippedAnnouncement new
 ]
 
 { #category : 'accessing' }
