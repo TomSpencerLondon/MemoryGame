@@ -9,8 +9,8 @@ See also: MGCard>>disappear
 Class {
 	#name : 'MGCardDisappearAnnouncement',
 	#superclass : 'Announcement',
-	#category : 'Bloc-Memory',
-	#package : 'Bloc-Memory'
+	#category : 'MemoryGame',
+	#package : 'MemoryGame'
 }
 
 { #category : 'accessing' }

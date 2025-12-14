@@ -25,8 +25,8 @@ Class {
 		'availableCards',
 		'chosenCards'
 	],
-	#category : 'Bloc-MemoryGame',
-	#package : 'Bloc-MemoryGame'
+	#category : 'MemoryGame',
+	#package : 'MemoryGame'
 }
 
 { #category : 'as yet unclassified' }

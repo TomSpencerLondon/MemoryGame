@@ -39,9 +39,8 @@ Class {
 		'backElement',
 		'frontElement'
 	],
-	#category : 'Bloc-Memory-Elements',
-	#package : 'Bloc-Memory',
-	#tag : 'Elements'
+	#category : 'MemoryGame',
+	#package : 'MemoryGame'
 }
 
 { #category : 'accessing' }

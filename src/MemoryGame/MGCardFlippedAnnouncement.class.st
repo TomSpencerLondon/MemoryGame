@@ -8,6 +8,6 @@ See also: MGCard>>flip, MGCard>>notifyFlipped
 Class {
 	#name : 'MGCardFlippedAnnouncement',
 	#superclass : 'Announcement',
-	#category : 'Bloc-Memory',
-	#package : 'Bloc-Memory'
+	#category : 'MemoryGame',
+	#package : 'MemoryGame'
 }
