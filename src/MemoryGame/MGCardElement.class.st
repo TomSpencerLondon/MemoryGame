@@ -37,7 +37,8 @@ Class {
 	#instVars : [
 		'card',
 		'backElement',
-		'frontElement'
+		'frontElement',
+		'memoryGame'
 	],
 	#category : 'MemoryGame',
 	#package : 'MemoryGame'
@@ -73,14 +74,29 @@ MGCardElement >> card [
 
 { #category : 'accessing' }
 MGCardElement >> card: aCard [
-	card := aCard.
-	self fillUpFrontElement.
-	self showCardFace.
+    card := aCard.
+    card announcer 
+        when: MGCardFlippedAnnouncement 
+        send: #showCardFace 
+        to: self.
+    card announcer
+        when: MGCardDisappearAnnouncement
+        send: #onDisappear
+        to: self.
+    self fillUpFrontElement.
+    self showCardFace
 ]
 
 { #category : 'accessing' }
 MGCardElement >> cardExtent [
 	^ 80@80
+]
+
+{ #category : 'as yet unclassified' }
+MGCardElement >> click [
+    "Ignore if already flipped"
+    card isFlipped ifTrue: [ ^ self ].
+    memoryGame chooseCard: card
 ]
 
 { #category : 'accessing' }
@@ -110,6 +126,7 @@ MGCardElement >> initialize [
 	self extent: self cardExtent.
 	self background: self backgroundPaint.
 	self geometry: (BlRoundedRectangleGeometry cornerRadius: 12).
+	self addEventHandlerOn: BlClickEvent do: [ :event | self click ].
 	self card: (MGCard new symbol: $a)
 ]
 
@@ -127,6 +144,21 @@ MGCardElement >> initializeBackElement [
 { #category : 'accessing' }
 MGCardElement >> initializeFrontElement [
 	frontElement := BlTextElement new
+]
+
+{ #category : 'as yet unclassified' }
+MGCardElement >> memoryGame [
+    ^ memoryGame
+]
+
+{ #category : 'accessing' }
+MGCardElement >> memoryGame: aGame [
+    memoryGame := aGame
+]
+
+{ #category : 'accessing' }
+MGCardElement >> onDisappear [
+    self visibility: BlVisibility hidden
 ]
 
 { #category : 'accessing' }

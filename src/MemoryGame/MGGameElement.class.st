@@ -56,6 +56,7 @@ MGGameElement >> memoryGame: aGameModel [
     memoryGame availableCards do: [ :aCard | 
         | cardElement |
         cardElement := MGCardElement new.
+        cardElement memoryGame: memoryGame.
         cardElement card: aCard.
         self addChild: cardElement ]
 ]

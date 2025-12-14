@@ -46,12 +46,12 @@ MGGame >> cardsCount [
 
 { #category : 'initialization' }
 MGGame >> chooseCard: aCard [ 
-	"Handle card selection with full game logic"
-	(self chosenCards includes: aCard) ifTrue: [  ^ self  ].
-	chosenCards add: aCard.
-	aCard flip.
-	self shouldCompleteStep
-		ifTrue: [ ^ self completeStep ].
+    "Handle card selection with full game logic"
+    (self chosenCards includes: aCard) ifTrue: [ ^ self ].
+    chosenCards add: aCard.
+    aCard flip.
+    self shouldCompleteStep ifTrue: [ ^ self completeStep ].
+    self shouldResetStep ifTrue: [ ^ self resetStep ]
 ]
 
 { #category : 'initialization' }
@@ -111,11 +111,12 @@ MGGame >> resetStep [
 
 { #category : 'initialization' }
 MGGame >> shouldCompleteStep [
-	^ self chosenCards size = self matchesCount
-	  and: [ self chosenCardMatch ]
+	chosenCards size = 2 ifFalse: [ ^ false ].
+   ^ chosenCards first symbol = chosenCards second symbol
 ]
 
 { #category : 'initialization' }
 MGGame >> shouldResetStep [
-	^ self chosenCards size > self matchesCount
+	chosenCards size = 2 ifFalse: [ ^ false ].
+	^ chosenCards first symbol ~= chosenCards second symbol
 ]
