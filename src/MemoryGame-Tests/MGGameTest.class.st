@@ -38,7 +38,7 @@ MGGameTest >> testGameHasChosenCards [
 { #category : 'tests' }
 MGGameTest >> testGridSize [
 	| game |
-	game := MGGame new initializeForSybols: #($A $B $C $D $E $F $G $H).
+	game := MGGame new initializeForSymbols: #($A $B $C $D $E $F $G $H).
 	self assert: game cardsCount equals: 16
 ]
 
