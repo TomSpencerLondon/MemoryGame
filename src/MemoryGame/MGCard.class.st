@@ -32,11 +32,6 @@ Class {
 	#package : 'MemoryGame'
 }
 
-{ #category : 'as yet unclassified' }
-MGCard class >> notifyDisappear [
-	self announcer announce: MGCardDisappearAnnouncement new
-]
-
 { #category : 'accessing' }
 MGCard >> announcer [
 	^ announcer
@@ -64,6 +59,11 @@ MGCard >> initialize [
 { #category : 'accessing' }
 MGCard >> isFlipped [
 	^ flipped
+]
+
+{ #category : 'as yet unclassified' }
+MGCard >> notifyDisappear [
+	self announcer announce: MGCardDisappearAnnouncement new
 ]
 
 { #category : 'notifying' }
